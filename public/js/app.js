@@ -1,7 +1,7 @@
 App = Ember.Application.create();
 
 App.Router.map(function(){
-  this.route('artists', { path: '/artists' });
+  this.route('artists');
 });
 
 App.ArtistsRoute = Ember.Route.extend({
