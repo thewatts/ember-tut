@@ -8,24 +8,24 @@ App.Song = Ember.Object.extend({
 
 App.Songs = Ember.A();
 
-var blackDog = Ember.Song.create({
+var blackDog = App.Song.create({
      title: "Black Dog",
     artist: "Led Zepplin",
     rating: 8
 });
-var yellowLedbetter = Ember.Song.create({
+var yellowLedbetter = App.Song.create({
      title: "Yellow Ledbetter",
     artist: "Pearl Jam",
     rating: 10
 });
-var thePretender = Ember.Song.create({
+var thePretender = App.Song.create({
      title: "The Pretender",
     artist: "Foo Fighters",
     rating: 10
 });
 
-App.Songs.pushObject(blackdog);
-App.Songs.pushObject(yellowDedbetter);
+App.Songs.pushObject(blackDog);
+App.Songs.pushObject(yellowLedbetter);
 App.Songs.pushObject(thePretender);
 
 App.alwaysWaiting = App.Song.create({

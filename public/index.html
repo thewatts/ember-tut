@@ -7,12 +7,18 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  Hello!!
+  <script type="text/x-handlebars">
+    <ul>
+    {{#each App.Songs}}
+      <li>{{title}} by {{artist}}</li>
+    {{/each}}
+    </ul>
+  </script>
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.2.0.js"></script>
   <script src="js/app.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
-  <script src="tests/runner.js"></script>
+  <script src="/js/tests/runner.js"></script>
 </body>
 </html>
