@@ -6,7 +6,15 @@ App.Song = Ember.Object.extend({
   artist: null
 });
 
-App.Songs = Ember.A();
+App.SongCollection = Ember.ArrayProxy.extend(Ember.SortableMixin,
+  {
+    sortProperties: ['rating'],
+    sortAscending: false,
+    content: []
+  }
+);
+
+App.Songs = App.SongCollection.create();
 
 var blackDog = App.Song.create({
      title: "Black Dog",
@@ -21,7 +29,7 @@ var yellowLedbetter = App.Song.create({
 var thePretender = App.Song.create({
      title: "The Pretender",
     artist: "Foo Fighters",
-    rating: 10
+    rating: 6
 });
 
 App.Songs.pushObject(blackDog);
