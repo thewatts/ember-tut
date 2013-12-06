@@ -1,5 +1,15 @@
 App = Ember.Application.create();
 
+App.Router.map(function(){
+  this.route('artists', { path: '/artists' });
+});
+
+App.ArtistsRoute = Ember.Route.extend({
+  model: function() {
+    return App.Artists;
+  }
+});
+
 App.Artist = Ember.Object.extend({
   name: null
 });
