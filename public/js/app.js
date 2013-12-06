@@ -14,6 +14,10 @@ var artistNames = [
   'Pearl Jam', 'Led Zeppelin', 'Foo Fighters', 'Kaya Project',
   'Radiohead', 'Red Hot Chili Peppers'];
 
+App.Artists = artistNames.map(function(name) {
+  return App.Artist.create({name: name});
+});
+
 App.Songs = Ember.A();
 
 // Pearl Jam songs
