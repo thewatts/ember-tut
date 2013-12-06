@@ -3,16 +3,35 @@
 <head>
 <meta charset="utf-8">
 <title>Music Collection</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
-    <ul>
-    {{#each App.Songs}}
-      <li>{{title}} by {{artist}} ({{rating}})</li>
-    {{/each}}
-    </ul>
+    <div class="container">
+      <div class="page-header">
+        <h1>Rock &amp; Roll<small> with Ember.js</small></h1>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="list-group">
+            {{#each App.Artists}}
+              <a href="#" class="list-group-item">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="list-group">
+            <div class="list-group-item empty-list">
+              <div class="empty-message">
+                Select an artist.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </script>
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
