@@ -12,7 +12,7 @@ App.ArtistsRoute = Ember.Route.extend({
   }
 });
 
-App.ArtistsSongRoute = Ember.Route.extend({
+App.ArtistsSongsRoute = Ember.Route.extend({
   model: function(params) {
     return App.Artists.findProperty('slug', params.slug);
   }

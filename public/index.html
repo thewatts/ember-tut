@@ -32,30 +32,36 @@
     <div class="col-md-4">
       <div class="list-group">
         {{#each App.Artists}}
-          <a href="#" class="list-group-item">{{name}}</a>
+          {{#link-to "artists.songs" this class="list-group-item"}}
+            {{name}}
+          {{/link-to}}
         {{/each}}
       </div>
     </div>
     <div class="col-md-8">
       <div class="list-group">
-          {{outlet}}
+        {{outlet}}
       </div>
     </div>
   </script>
 
-
-<!--
-<div class="list-group-item empty-list">
-  <div class="empty-message">
-    Select an artist.
-  </div>
-</div>
--->
+  <script type="text/x-handlebars" data-template-name="artists/index">
+    <div class="list-group-item empty-list">
+      <div class="empty-message">
+        Select an artist.
+      </div>
+    </div>
+  </script>
 
   <script type="text/x-handlebars" data-template-name="artists/songs">
-    {{slug}}
     {{#each songs}}
-      <a href="#">{{title}}</a>
+      <a href="#" class="list-group-item">{{title}}</a>
+    {{else}}
+      <div class="list-group-item empty-list">
+        <div class="empty-message">
+          There are no {{name}} songs.
+        </div>
+      </div>
     {{/each}}
   </script>
 
