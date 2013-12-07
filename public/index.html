@@ -38,13 +38,25 @@
     </div>
     <div class="col-md-8">
       <div class="list-group">
-        <div class="list-group-item empty-list">
-          <div class="empty-message">
-            Select an artist.
-          </div>
-        </div>
+          {{outlet}}
       </div>
     </div>
+  </script>
+
+
+<!--
+<div class="list-group-item empty-list">
+  <div class="empty-message">
+    Select an artist.
+  </div>
+</div>
+-->
+
+  <script type="text/x-handlebars" data-template-name="artists/songs">
+    {{slug}}
+    {{#each songs}}
+      <a href="#">{{title}}</a>
+    {{/each}}
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
