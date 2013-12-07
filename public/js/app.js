@@ -14,7 +14,7 @@ App.ArtistsRoute = Ember.Route.extend({
 
 App.ArtistsSongRoute = Ember.Route.extend({
   model: function(params) {
-    return App.Artists.findBy('slug', params.slug);
+    return App.Artists.findProperty('slug', params.slug);
   }
 });
 
