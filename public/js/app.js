@@ -15,6 +15,14 @@ App.IndexRoute = Ember.Route.extend({
 App.ArtistsRoute = Ember.Route.extend({
   model: function() {
     return App.Artists;
+  },
+  actions: {
+    createArtist: function() {
+      var name = this.get('controller').get('newArtist');
+      var artist = App.Artist.create({ name: name });
+      App.Artists.pushObject(artist);
+      this.get('controller').set('newArtist', '');
+    }
   }
 });
 
