@@ -64,6 +64,12 @@ App.StarRating = Ember.View.extend({
       starsData.push({ rating: i, full: type === 'full' });
     };
     return starsData;
+  },
+  actions: {
+    setRating: function() {
+      var newRating = Ember.$(event.target).data('rating');
+      this.set('rating', newRating);
+    }
   }
 });
 
