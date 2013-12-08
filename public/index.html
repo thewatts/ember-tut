@@ -34,8 +34,11 @@
     <div class="col-md-4">
       <div class="list-group">
         <div class="list-group-item">
-          {{input type='text' class='new-artist' placeholder='New Artist' value=newArtist}}
-          <button class='btn btn-primary btn-sm new-artist-button' {{action "createArtist"}}>
+          {{input type='text' class='new-artist' placeholder='New Artist'
+            value=newArtist}}
+          <button class='btn btn-primary btn-sm new-artist-button'
+            {{action "createArtist"}}
+            {{bind-attr disabled=disabled}}>
             Add
           </button>
         </div>
@@ -62,23 +65,30 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="artists/songs">
-    <div class="list-group-item">
-      {{input type="text" class="new-song" placeholder="New Song" value=newSong}}
-      <button class="btn btn-primary btn-sm new-song-button" {{action "createSong"}}>
-        Add
-      </button>
-    </div>
+    {{#if canCreateSong}}
+      <div class="list-group-item">
+        {{input type="text" class="new-song" placeholder=newSongPlaceholder
+          value=newSong}}
+        <button class="btn btn-primary btn-sm new-song-button"
+          {{action "createSong"}}>
+          Add
+        </button>
+      </div>
+    {{/if}}
     {{#each songs}}
       <div class="list-group-item">
         {{title}} {{rating}}
         {{view App.StarRating maxRating=5}}
       </div>
     {{else}}
-      <div class="list-group-item empty-list">
-        <div class="empty-message">
-          There are no {{name}} songs.
+      {{#unless songCreationStarted}}
+        <div class="list-group-item empty-list">
+          <div class="empty-message">
+            There are no {{name}} songs.
+            You should <a href="#" {{action enableSongCreation}}>Add One!</a>
+          </div>
         </div>
-      </div>
+      {{/unless}}
     {{/each}}
   </script>
 

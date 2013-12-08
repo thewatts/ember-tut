@@ -22,6 +22,7 @@ App.ArtistsRoute = Ember.Route.extend({
       var artist = App.Artist.create({ name: name });
       App.Artists.pushObject(artist);
       this.get('controller').set('newArtist', '');
+      this.transitionTo('artists.songs', artist);
     }
   }
 });
@@ -69,6 +70,28 @@ App.StarRating = Ember.View.extend({
     setRating: function() {
       var newRating = Ember.$(event.target).data('rating');
       this.set('rating', newRating);
+    }
+  }
+});
+
+App.ArtistsController = Ember.ArrayController.extend({
+  newArtist: '',
+  disabled: function() {
+    return Ember.isEmpty(this.get('newArtist'));
+  }.property('newArtist')
+});
+
+App.ArtistsSongsController = Ember.ObjectController.extend({
+  newSongPlaceholder: function() {
+    return "New Song for " + this.get('name');
+  }.property('name'),
+  songCreationStarted: false,
+  canCreateSong: function() {
+    return this.get('songCreationStarted') || this.get('songs.length');
+  }.property('songCreationStarted', 'songs.length'),
+  actions: {
+    enableSongCreation: function() {
+      this.set('canCreateSong', true);
     }
   }
 });
