@@ -35,7 +35,7 @@
       <div class="list-group">
         <div class="list-group-item">
           {{input type='text' class='new-artist' placeholder='New Artist'
-            value=newArtist}}
+            value=newArtist insert-newline="createArtist"}}
           <button class='btn btn-primary btn-sm new-artist-button'
             {{action "createArtist"}}
             {{bind-attr disabled=disabled}}>
@@ -68,7 +68,7 @@
     {{#if canCreateSong}}
       <div class="list-group-item">
         {{input type="text" class="new-song" placeholder=newSongPlaceholder
-          value=newSong}}
+          value=newSong insert-newline="createSong"}}
         <button class="btn btn-primary btn-sm new-song-button"
           {{action "createSong"}}>
           Add
